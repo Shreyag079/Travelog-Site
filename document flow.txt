@@ -1,0 +1,76 @@
+Add Text-
+
+On clicking the add textbox button, a main div is dynamically created whose ID gets changed dynamically each time. 
+Within the div, a textarea is visible for writing the content. 
+Enter the element ID into the hidden field while adding each textbox.
+
+---------------------
+
+Add photos-
+
+A main div with unique ID is created each time when add photos button is clicked. There is a choose file button 
+and an upload button visible inside it. After choosing the file, when the upload button is clicked, the uploadpic() function
+is called. There is an img tag with an empty src attribute in which the image is later added when the src is appended.
+
+The form ID also needs to be dynamically changed in order to create an unique form each time.
+
+The element ID needs to be appended to the string stored in the hidden field.
+
+
+
+UploadPic() function-
+
+In this function, first extract the elements string of elementIDs (added uptill that time) from the hidden field.
+We need to send the formdata and the elements string to the server.
+
+Server will save the uploaded using mutler library to blog folder on the disk. Mutlet will assign an arbitrary name. 
+Server will use the elements string and update the blogmasterfile.
+
+If the elements string is "t1_p1" , then the blog master file will have .. 
+
+******************
+t1
+p1
+
+*****************
+
+t1 data is still not there with the server. It will come when "Save" button is hit. 
+
+Current server api will also rename the photo file to p1.* 
+This filename is returned to the client in form of json data.  
+This filename is then used in the client side to create the path in order to access the saved file
+and give that path in the empty src attribute so thet the photo is visible to the user. 
+
+Our client side code the remaining part of the upload form 
+is hidden.
+
+(will have to make changes for the edit option as the ID of the previous form will vanish each time and will be lost)
+
+
+
+----------------------------------------------
+Save button-
+
+On click the save button, the order of the string of elementIDs in the hidden field needs to be checked and then the accordingly the
+data inside each textbox needs to be sent and saved in a file on the server side. 
+ 
+Eg. if the elements string has t1 p2 t3 ,
+then the p2 will have already been saved on the server
+So, the data in the textboxes is left to be sent to the server side.
+On clicking the save button, this data from all of the before textboxes need to be saved and sent to the server.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

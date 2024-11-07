@@ -1,0 +1,111 @@
+<html>
+
+<head>
+  <script src="/navigation.js"></script>
+  <script src="/createBlog.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+  * {
+          margin: 0p;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+          padding: 7px 20px;
+          cursor: pointer;
+        }
+
+textarea {
+             margin: 2px;
+         }        
+
+.blogging {
+    background-image: url('pink-background-with-soft-light-illustration-eps10-vector.jpg');
+}
+
+.but{
+  float: right;
+}
+
+</style>
+
+
+
+
+</head>
+
+
+
+<body onload="OnPublish()">
+    
+  <!-- Navigation -->
+<div id="navigation-container"></div>
+  <!-- Navigation -->
+
+
+  <div class="blogging">
+
+<h1>Publish a Blog :</h1>
+<br><br>
+<form method='POST' action='/articles'>
+  <div align="center">
+  <label>Title:</label> <br> <textarea rows="5" cols="40"  name='title'></textarea>
+  <br><br><br>
+  <label for='body'>Blog:</label>
+  <br>
+  <textarea rows="25" cols="100" name='body'>
+  </textarea>
+  <br>
+  <br>
+  <input type='submit'>
+</div>
+</form>
+
+<button onclick="addphoto()">
+  Add photos
+</button><br><br>
+
+
+
+<br><br>
+
+<button onclick="addvideo()">
+  Add video
+</button><br><br>
+<div id="vid"> </div>
+
+<br><br>
+
+<button onclick="addaudio()">
+  Add voice message
+</button><br><br>
+<div id="aud"> </div>
+    
+<br><br>
+
+<button onclick="addtext()">
+      Add textbox
+</button><br><br>
+
+<button id="save" class="but" onclick="SaveContent()"> Save </button>
+
+  </div>
+
+  <input type="hidden" id="hiddenBlogID">
+  <input type="hidden" id="hiddenElementID" name="elementID">
+  <input type="hidden" id="hiddenTextID">
+  
+
+
+</body>
+
+
+</html>

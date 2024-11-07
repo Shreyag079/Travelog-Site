@@ -1,0 +1,120 @@
+<html>
+    <nav>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #eea02d;
+}
+
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a.home {
+    float: left;
+    color: white;
+}
+
+.topnav a:hover, .dropdown:hover .user-name {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.dropdown {
+  float: right;
+  overflow: hidden;
+}
+.dropdown .user-name {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+</style>
+
+</head>
+<body>
+
+    <div class="topnav">
+        <b>
+            
+      <a href="/signup.html" class="active" id="loginLink">Sign up / Login</a>
+      <div class="dropdown">
+        <a href="#"  class="user-name"  id="loggedinLink" >Logged in User</a>  
+        <div class="dropdown-content" id="userDropdown">
+        <a href="/profile">Profile</a>
+        <a href="#" id="logoutBtn" onClick = "logout()" >Logout</a>
+        </div>
+      </div>
+      <a class="home" href="/index.html">Home</a>
+      <a href="#popularblogs">Popular blogs</a>
+      <a href="/open.html">View blogs</a>
+      <a href="/publish">New blog</a>   
+        </b>
+    </div>
+
+    <input type="hidden" id="hiddenField">
+
+    <script>
+
+      var x = document.getElementById('newBlog');
+      x.onclick = CreateBlog();
+  
+      function CreateBlog()
+      {
+        alert("function is called");
+      }
+      
+        </script>
+
+</body>
+</nav>
+</html>

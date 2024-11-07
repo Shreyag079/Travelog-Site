@@ -1,0 +1,58 @@
+<html>
+   <head>
+      <script type="text/javascript">
+         function Redirect()
+        {
+           const string = document.getElementById("hidden").value;
+           alert("string- " +string);
+           
+           const array = Array.from(string);
+           let n = array.length;
+
+           let myArray = new Array(10);
+           
+           let j = 0;
+            let k = 1;
+
+           for(i=0 ; i<n ; i++)
+           {
+            //alert("i is- " +i);
+
+            if(array[i] =='=')
+            { 
+                
+
+                
+                 alert("Token " +k+"=" +myArray);
+                
+                    for(j=0 ; j<10 ; j++)
+                   {
+                     myArray[j] = null;
+                     
+                   }
+                   //alert("array 2 is- " +myArray);
+                   j=0;
+                   k = k+1;
+
+            }
+            else
+            {                
+                myArray[j] = array[i];
+                j = j+1;
+            }
+
+           }
+           alert("Token " +k+"=" +myArray);
+        }   
+        
+
+      </script>
+   </head>
+   <body>
+      
+      <form>
+         <input type="button" value="split string" onclick="Redirect();" />
+      </form>
+      <input type="hidden" id="hidden" value="aa=bb=cccc=d">
+   </body>
+</html> 

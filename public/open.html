@@ -1,0 +1,110 @@
+<html>
+<head>
+  <script src="/navigation.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.viewing {
+    background-image: url('airplane-flying-and-leaving-heart-shape-dashed-line (1).jpg');
+}
+
+.button1 {
+    background-color: #8b044e;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+    
+  <!-- Navigation -->
+<div id="navigation-container"></div>
+  <!-- Navigation -->
+
+<br>
+<form method='GET' action='/search'>
+    <label>Search by Author: <input type="search" name="author"></label>
+    <input type='submit' value='Search'>
+  </form>
+  
+  <div class="viewing">
+  <h1>Your Blog :</h1>
+<body>
+    <div class="button1">
+    <input type = "button" onclick = "loadPuzzle()" value = "view blogs">
+</div>
+    </body>
+    <br>
+<div align="center">
+    <b><label>Title:</label></b> <br> <textarea rows="5" cols="40"  name='title' id="id1"></textarea>
+    <br><br><br>
+    <b><label for='body'>Blog:</label></b>
+    <br>
+    <textarea rows="25" cols="100" name='body' id="id2">
+    </textarea>
+<br><br>
+</div>
+</div>
+<script>
+    async function loadPuzzle(keyc1,keyc2)
+      {
+        
+
+        //alert("button is called");
+               
+
+        const requestData = {
+                keyc1: "valc1",
+                keyc2: "valc2",
+                               
+              };
+
+            try {
+                const response = await fetch('/view', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(requestData), 
+                });
+
+                if (response.ok) {
+                    //alert("response is ok");
+                    const data = await response.json();
+
+                    //alert("keys1 = " + data.keys1);
+                    //alert("keys2 =" + data.keys2);
+                    let x = document.getElementById("id1");
+                   x.value = data.keys1;
+                   let y = document.getElementById("id2");
+                   y.value = data.keys2;
+                  
+                 
+                } else {
+                    alert("error1 ");
+                    alert(response.statusText)
+                    console.error('Fetch failed:', response.statusText);
+                }
+            } catch (error) {
+                alert("error 2");
+                console.error('Fetch error:', error);
+            }
+            
+        }
+
+    
+</script>
+
+</body>
+</html>
